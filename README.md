@@ -1,5 +1,7 @@
-# Welcome to GitHub Desktop!
+# EVODENUBY - Front-End Developer
 
-This is your README. READMEs are where you can communicate what your project is and how to use it.
+I am an experienced front-end developer, passionate about coding, web development, and staying updated with the latest tech trends.
 
-Write your name on line 6, save it, and then head back to GitHub Desktop.
+My focus is on creating visually appealing and responsive web pages with beautiful UI/UX design.
+
+Reach me via email at evodepro6@gmail.com or check out my YouTube channel: [EVODENUBY](http://www.youtube.com/@EVODENUBY).
