@@ -1,4 +1,4 @@
-# EVODENUBY - Front-End Developer
+# EVODENUBY
 
 I am an experienced front-end developer, passionate about coding, web development, and staying updated with the latest tech trends.
 
