@@ -1,18 +1,18 @@
+
 from collections import deque
-from tabulate import tabulate
 
 bookings_stack = []
 lesson_queue = deque()
 
-Available_lectures = ['1.TEACHER ADOLPHE', '2.TEACHER BERNARD', '3.TEACHER MARY', '4.TEACHER PATRICK',
-                      '5.TEACHER EVODE']
-Available_lessons = ['1.SYSTEM ENGINEERING', '2.DSA', '3.BUSINESS FUNCTION', '4.ESP', '5.DATABASE TECHNOLOGY']
+
+Available_lectures = ['1.TEACHER ADOLPHE', '2.TEACHER BERNARD', '3.TEACHER MARY', '4.TEACHER PATRICK','5.TEACHER EVODE']
+Available_lessons = ['1.SYSTEM ENGINEERING','2.DSA','3.BUSINESS FUNCTION','4.ESP','5.DATABASE TECHNOLOGY']
 
 def print_tutors():
-    table = [[i + 1, tutor] for i, tutor in enumerate(Available_lectures)]
     print("\nAvailable Tutors:\n")
-    print(tabulate(table, headers=["No.", "Teacher Name"], tablefmt="fancy_grid"))
-
+    for tutor in Available_lectures:
+          print(f'\t{tutor}')
+ 
 def add_booking(session_info):
     bookings_stack.append(session_info)
 
@@ -25,9 +25,11 @@ def undo_booking():
 
 def print_bookings():
     if bookings_stack:
-        table = [[i + 1, booking] for i, booking in enumerate(bookings_stack)]
+
         print("\nCurrent Bookings:")
-        print(tabulate(table, headers=["No.", "Booking"], tablefmt="fancy_grid"))
+        for bookings in bookings_stack:
+           print(f'\tbookings')  
+       
     else:
         print("\n\t Sorry!!, No bookings available.")
 
@@ -41,14 +43,14 @@ def undo_scheduled_lesson():
     else:
         print(f'\nSorry!!, no schedules available to undo!!')
         
+
 def print_scheduled_lessons():
     if lesson_queue:
-        table= [[i +1, lesson] for i,lesson in enumerate(lesson_queue)]
         print("\nScheduled Lessons:")
-        print(tabulate(table,headers=['NO','SCHEDULED LESSONS'],tablefmt="fancy_grid"))
-    else:
-        print("\nNo lessons scheduled.")
-
+        for lessons in lesson_queue:
+             print(lessons)
+        else:
+         print("\nNo lessons scheduled.")
 
 def ONLINE_TUTORING_SYSTEM():
     while True:
@@ -69,27 +71,26 @@ def ONLINE_TUTORING_SYSTEM():
 
         elif choice == 2:
             print('AVAILABLE LESSONS\n')
-            table =[[i +1, courses] for i, courses in enumerate(Available_lessons)]
-            print(tabulate(table,headers=["No.", "Courses"], tablefmt="fancy_grid"))
-
-            name = input('Enter your Name: ')
+            for courses in Available_lessons:
+                print(f'\t{courses}')
+            name =input('Enter your Name: ')
             session_info = input("Enter The name of lesson (Select only lesson on the list): ").upper()
             if session_info == 'SYSTEM ENGINEERING':
-                print(f'{name} Booked {session_info} To be taught by TEACHER ADOLPHE')
+               print(f'{name} Booked {session_info} To be tought by TEACHER ADOLPHE')
             elif session_info == 'DSA':
-                print(f'{name} Booked {session_info} To be taught by TEACHER BERNARD')
-
+                print(f'{name} Booked {session_info} To be tought by TEACHER BERNARD')
+            
             elif session_info == 'BUSINESS FUNCTION':
-                print(f'{name} Booked {session_info} To be taught by TEACHER MARY')
-
+                print(f'{name} Booked {session_info} To be tought by TEACHER MARY')
+            
             elif session_info == 'ESP':
-                print(f'{name} Booked {session_info} To be taught by TEACHER PATRICK')
-
+                print(f'{name} Booked {session_info} To be tought by TEACHER PATRICK')
+            
             elif session_info == 'DATABASE TECHNOLOGY':
-                print(f'{name} Booked {session_info} To be taught by TEACHER EVODENUBY')
+                print(f'{name} Booked {session_info} To be tought by TEACHER EVODE')
             else:
-                print(f'\n\tIncorrect choice, please try Again\n')
-
+                print(f'\n\tIncorect choice, please try Again\n')
+            
             add_booking(session_info)
 
         elif choice == 3:
@@ -99,28 +100,26 @@ def ONLINE_TUTORING_SYSTEM():
             print_bookings()
 
         elif choice == 5:
-            schedules = ['SYSTEM ENGINEERING FROM 8:00AM-10:00AM', 'DSA AT 10:00AM-12:00AM',
-                         'BUSINESS FUNCTION 12:30PM-2:00PM', 'ESP AT 2:30PM-3:30PM',
-                         'DATABASE TECHNOLOGY AT 4:00PM-5:00PM']
+            schedules=['SYSTEM ENGINEERING AT 8:00AM-10:00AM','DSA AT 10:00AM-12:00AM','BUSINESS FUNCTION 12:30PM-2:00PM','ESP AT 2:30PM-3:30PM',
+                       'DATABASAE TECHNOLOGY AT 4:00PM-5:00PM']
             print(f'\nLESSON SCHEDULES:')
-            table = [[i + 1, schedule] for i, schedule in enumerate(schedules)]
-            print(tabulate(table, headers=["No.", "Schedules"], tablefmt="fancy_grid"))
-
+            for schedule in schedules:
+                print(f'\t {schedule}')
             lesson_info = input('Enter the lesson schedule as indicated: ').upper()
             if lesson_info in schedules:
                 print(f'\n\t Your schedule for {lesson_info} is successful!!')
             else:
                 print(f'\n\tPlease, Try Again')
             schedule_lesson(lesson_info)
-
+            
         elif choice == 6:
             undo_scheduled_lesson()
-
+            
         elif choice == 7:
-            print_scheduled_lessons()
+             print_scheduled_lessons()
 
         elif choice == 8:
-            print("Thank you for using ONLINE TUTORING SYSTEM\n")
+            print("\n\tThank you for using ONLINE TUTORING SYSTEM\n")
             break
         else:
             print("Invalid choice, please try again.")
